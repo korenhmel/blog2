@@ -1,0 +1,16 @@
+<h1>Hello index!! </h1>
+
+<% @article.each do |art| %>
+	 <h2>
+	 <%= art.title %>
+	 </h2>
+	  <p> 
+	 <%= art.text%>
+	 </p>
+	 <p>
+	 <%= link_to 'show', article_path(art) %> |
+	 <%= link_to 'edit', edit_article_path(art) %> |
+	 <%= link_to 'destroy', article_path(art), method: :delete, data: {confirm:'Are you sure?'} %> 
+	 </p>
+	 <% end %>
+	 

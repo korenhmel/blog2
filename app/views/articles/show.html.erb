@@ -1,0 +1,29 @@
+<h1>Article</h1>
+<h2><%= @article.title %></h2>
+<p><%= @article.text %></p>
+<p><%= link_to 'index', articles_path %></p><br>
+<h2>comments</h2>
+<% @article.comments.each do |f| %>
+<p style= "color: blue">author: <span style= "color: black"><%= f.author %></span></p>
+<p style= "color: blue"> message:<span style= "color: black"> <%= f.body %></span></p><br>
+
+<% end %>
+
+ 
+<%= form_for ([@article,  @article.comments.build]) do |f|  %>
+<!-- <p>
+       <%= f.label   :author  %><br>
+       <%= f.text_field :author  %>
+
+   </p> -->
+   
+    <p><%= params.inspect %></p>
+ <p>
+       <%= f.label   :body %><br>
+       <%= f.text_area  :body %>
+   </p>
+<p>
+      <%= f. submit %>
+</p>
+
+ <% end %>
